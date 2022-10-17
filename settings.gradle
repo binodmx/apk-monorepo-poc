@@ -8,3 +8,9 @@
  */
 
 rootProject.name = 'mono-repo-poc'
+
+include 'sub-project-1'
+include 'sub-project-2'
+include 'sub-project-3'
+include 'sub-project-4'
+

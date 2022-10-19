@@ -8,9 +8,14 @@
  */
 
 rootProject.name = 'mono-repo-poc'
+println '[DEBUG] This is executed during the initialization phase.'
 
-include 'sub-project-1'
-include 'sub-project-2'
-include 'sub-project-3'
-include 'sub-project-4'
-
+includeBuild('component-1')
+//includeBuild('component-2')
+//includeBuild('component-3')
+//includeBuild('component-4')
+//include 'component-1:sample-java-project-1'
+//findProject(':component-1:sample-java-project-1')?.name = 'sample-java-project-1'
+//include 'component-1:sample-java-project-2'
+//findProject(':component-1:sample-java-project-2')?.name = 'sample-java-project-2'
+//

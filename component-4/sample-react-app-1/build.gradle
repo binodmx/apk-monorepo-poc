@@ -1,3 +1,0 @@
-group = "${group}.sample-react-app-1"
-
-task deploy

@@ -7,5 +7,4 @@ include 'component-2'
 
 include 'component-3:sample-ballerina-service'
 
-include 'component-4:sample-react-app-1'
-include 'component-4:sample-react-app-2'
+include 'component-4:sample-react-app'

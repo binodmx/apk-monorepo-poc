@@ -1,53 +1,29 @@
+
 group 'org.example'
 version '0.0.1-SNAPSHOT'
+// artifactId defaults to the project name configured in settings.gradle,
+// which in turn defaults to the project directory's name.
 
-//
-//println '[DEBUG] This is executed during the configuration phase.'
+allprojects {
+    task('printProjectName').doLast {
+        println "Project Name: $project.name"
+    }
+}
 
-//plugins {
-//    id 'java'
-//}
-//
-//jar {
-//    manifest {
-//        attributes 'Main-Class': 'org.example.Hello'
-//    }
-//}
-//
-//repositories {
-//    mavenCentral()
-//}
-//
-//dependencies {
-//    testImplementation group: 'junit', name: 'junit', version: '4.13.2'
-//}
+subprojects {
 
-//allprojects {
-//    task('hello').doLast {
-//        println "Project Name: $project.name"
+}
+
+//project(':component-2') {
+//    dependencies {
+//        implementation project(':component-1')
 //    }
 //}
 
-//subprojects {
+//project(':component-1') {
+//    apply plugin: 'java-library'
 //
-//}
-
-//tasks.register('configured') {
-//    println '[DEBUG] This is also executed during the configuration phase, because :configured is used in the build.'
-//}
-//
-//tasks.register('test') {
-//    doLast {
-//        println '[DEBUG] This is executed during the execution phase.'
+//    dependencies {
+//        api 'org.apache.commons:commons-math3:3.6.1'
 //    }
-//}
-//
-//tasks.register('testBoth') {
-//    doFirst {
-//        println '[DEBUG] This is executed first during the execution phase.'
-//    }
-//    doLast {
-//        println '[DEBUG] This is executed last during the execution phase.'
-//    }
-//    println '[DEBUG] This is executed during the configuration phase as well, because :testBoth is used in the build.'
 //}

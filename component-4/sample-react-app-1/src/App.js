@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [displayText, setDisplayText] = useState('');
+
+  const handleClick = () => {
+    fetch("https://run.mocky.io/v3/c4f8a32f-bd11-4d4f-b35b-0f25b2ed52cf")
+      .then((response) => response.json())
+      .then((data) => {
+        setDisplayText(JSON.stringify(data));
+      });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <body>
+        <button className="GetResponseButton" onClick={handleClick}>Get Response</button>
+      </body>
+      {displayText && <p>{displayText}</p>}
     </div>
   );
 }

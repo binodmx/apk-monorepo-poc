@@ -1,15 +1,24 @@
 plugins {
+    // https://github.com/researchgate/gradle-release#multi-project-builds
     id 'net.researchgate.release' version '3.0.2'
 }
 
-group 'org.example.java'
+//buildscript {
+//    repositories {
+//        maven {
+//            url 'https://plugins.gradle.org/m2/'
+//        }
+//    }
+//    dependencies {
+//        classpath 'net.researchgate:gradle-release:3.0.2'
+//    }
+//}
 
 subprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
 
     group = project.group
-    version = project.version
 
     repositories {
         mavenCentral()
@@ -18,4 +27,8 @@ subprojects {
     task('printProjectName').doLast {
         println "Project Name: $project.name"
     }
+
+//    release {
+//        tagTemplate = 'v${version}'
+//    }
 }

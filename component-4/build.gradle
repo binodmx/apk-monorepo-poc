@@ -1,0 +1,15 @@
+plugins {
+//    id 'java'
+}
+
+group 'org.example.ui'
+version '0.0.1-SNAPSHOT'
+
+subprojects {
+    group = project.group
+    version = project.version
+
+    task('printProjectName').doLast {
+        println "Project Name: $project.name"
+    }
+}

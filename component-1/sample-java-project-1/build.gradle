@@ -1,22 +1,22 @@
-plugins {
+//plugins {
     // https://docs.gradle.org/current/userguide/java_plugin.html
-    id 'java'
+//    id 'java'
 //    id 'project-report'
     // https://docs.gradle.org/current/userguide/jacoco_plugin.html
-    id 'jacoco'
-}
+//    id 'jacoco'
+//}
 
-group 'org.example'
-version '0.0.1-SNAPSHOT'
+//group 'org.example.'
+//version '0.0.1'
 // artifactId defaults to the project name configured in settings.gradle,
 // which in turn defaults to the project directory's name.
 
 // https://docs.gradle.org/current/userguide/declaring_repositories.html
-repositories {
-    // calling mavenCentral() method of the delegate of this closure which RepositoryHandler
-    // https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenCentral()
-    mavenCentral()
-}
+//repositories {
+//    // calling mavenCentral() method of the delegate of this closure which RepositoryHandler
+//    // https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.RepositoryHandler.html#org.gradle.api.artifacts.dsl.RepositoryHandler:mavenCentral()
+//    mavenCentral()
+//}
 
 // https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.DependencyHandler.html
 dependencies {
@@ -35,17 +35,17 @@ test {
 }
 
 // https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html
-jar {
-    manifest {
-        attributes 'Implementation-Title': 'Sample Java Project 1',
-                'Implementation-Version': project.version,
-                'Created-By' : "binodmx",
-                'Main-Class': 'org.example.Main'
-    }
+//jar {
+//    manifest {
+//        attributes 'Implementation-Title': 'Sample Java Project 1',
+//                'Implementation-Version': project.version,
+//                'Created-By' : "binodmx",
+//                'Main-Class': 'org.example.Main'
+//    }
 
 //    from {
 //        configurations.runtimeClasspath.collect {
 //            it.isDirectory() ? it : zipTree(it)
 //        }
 //    }
-}
+//}

@@ -1,10 +1,23 @@
 plugins {
     // https://github.com/node-gradle/gradle-node-plugin
     // https://github.com/node-gradle/gradle-node-plugin/blob/3.5.0/docs/usage.md
-    id "com.github.node-gradle.node" version "3.5.0"
+    // id "com.github.node-gradle.node" version "3.5.0"
     // https://dzone.com/articles/integrating-java-and-npm-builds-using-gradle
     // id "com.moowork.node" version "1.2.0"
 }
 
-group 'org.example'
-version '0.0.1-SNAPSHOT'
+// https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
+task npm_install(type:Exec) {
+    group 'npm'
+    commandLine 'npm', 'install'
+}
+
+task npm_run_build(type:Exec) {
+    group 'npm'
+    commandLine 'npm', 'run', 'build'
+}
+
+task npm_test(type:Exec) {
+    group 'npm'
+    commandLine 'npm', 'test'
+}

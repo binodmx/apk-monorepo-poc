@@ -1,0 +1,10 @@
+//rootProject.name = 'mono-repo-poc'
+//
+//include 'component-1:sample-java-project-1'
+//include 'component-1:sample-java-project-2'
+//
+//include 'component-2'
+//
+//include 'component-3:sample-ballerina-service'
+//
+//include 'component-4:sample-react-app'

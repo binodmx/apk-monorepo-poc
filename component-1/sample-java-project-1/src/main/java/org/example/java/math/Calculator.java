@@ -1,4 +1,4 @@
-package org.example;
+package org.example.java.math;
 
 import org.apache.commons.math3.random.RandomDataGenerator;
 
@@ -6,6 +6,13 @@ import org.apache.commons.math3.random.RandomDataGenerator;
  * Calculator class is used to perform simple mathematical operations
  */
 public class Calculator {
+
+    /**
+     * Calculator constructor method
+     */
+    public Calculator() {
+
+    }
 
     /**
      * @param a first integer

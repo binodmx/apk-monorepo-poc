@@ -1,0 +1,4 @@
+rootProject.name = 'component-1'
+
+include 'sample-java-project-1'
+include 'sample-java-project-2'

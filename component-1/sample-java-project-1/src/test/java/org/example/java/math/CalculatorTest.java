@@ -1,4 +1,4 @@
-package org.example;
+package org.example.java.math;
 
 import org.testng.annotations.Test;
 
@@ -10,6 +10,6 @@ public class CalculatorTest {
     public void testAdd() {
         Calculator calculator = new Calculator();
         int c = calculator.add(5, 3);
-        assertEquals(8, c);
+        assertEquals(c, 8);
     }
 }

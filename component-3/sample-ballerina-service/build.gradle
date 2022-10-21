@@ -1,27 +1,15 @@
-//buildscript {
-//    repositories {
-//        maven {
-//            url = 'https://maven.pkg.github.com/ballerina-platform/plugin-gradle'
-//            credentials {
-//                username System.getenv("packageUser")
-//                password System.getenv("packagePAT")
-//            }
-//        }
-//    }
-//    dependencies {
-//        classpath "io.ballerina:plugin-gradle:0.0.1"
-//    }
-//}
-
-//plugins {
-//    id 'io.ballerina.plugin' version '0.0.1'
-//}
-
-group 'org.example'
-version '0.0.1-SNAPSHOT'
-
-repositories {
-    mavenCentral()
+// https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
+task bal_build(type:Exec) {
+    group 'ballerina'
+    commandLine 'bal', 'build'
 }
 
+task bal_test(type:Exec) {
+    group 'ballerina'
+    commandLine 'bal', 'test'
+}
 
+task bal_clean(type:Exec) {
+    group 'ballerina'
+    commandLine 'bal', 'clean'
+}

@@ -1,0 +1,30 @@
+group 'org.example.java'
+version '0.0.1-SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'net.researchgate:gradle-release:3.0.2'
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'net.researchgate.release'
+
+    group = project.group
+    version = project.version
+
+    repositories {
+        mavenCentral()
+    }
+
+    task('printProjectName').doLast {
+        println "Project Name: $project.name"
+    }
+}

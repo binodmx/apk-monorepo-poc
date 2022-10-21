@@ -1,18 +1,25 @@
+//plugins {
+//    https://github.com/researchgate/gradle-release
+//    id 'net.researchgate.release' version '3.0.2'
+//}
 
-group 'org.example'
-version '0.0.1-SNAPSHOT'
+//group 'org.example'
+//version '0.0.1-SNAPSHOT'
 // artifactId defaults to the project name configured in settings.gradle,
 // which in turn defaults to the project directory's name.
 
-allprojects {
-    task('printProjectName').doLast {
-        println "Project Name: $project.name"
-    }
-}
+//allprojects {
+//    group = project.group
+//    version = project.version
+//
+//    task('printProjectName').doLast {
+//        println "Project Name: $project.name"
+//    }
+//}
 
-subprojects {
-
-}
+//subprojects {
+//
+//}
 
 //project(':component-2') {
 //    dependencies {

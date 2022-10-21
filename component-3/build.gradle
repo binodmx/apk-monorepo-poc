@@ -5,6 +5,10 @@ plugins {
 subprojects {
     group = project.group
     version = project.version
+
+    task('printProjectName').doLast {
+        println "Project Name: $project.name"
+    }
 }
 
 release {

@@ -13,5 +13,3 @@ jobs:
     steps:
       - name: Print message
         run: echo "Detected file changes in component-1"
-      - name: Release component-1
-        run: cd component-1 | gradle release -Prelease.useAutomaticVersion=true

@@ -12,5 +12,7 @@ jobs:
     name: Build and release
     runs-on: ubuntu-latest
     steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2
       - name: release
-        run: cd component-1 && ./gradlew release -Prelease.useAutomaticVersion=true
+        run: ./component-1/gradlew release -Prelease.useAutomaticVersion=true

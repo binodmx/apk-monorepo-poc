@@ -22,5 +22,5 @@ subprojects {
 
 // https://github.com/researchgate/gradle-release/issues/158
 release {
-    tagTemplate = '${project.name}-${version}'
+    tagTemplate = '${name}-${version}'
 }

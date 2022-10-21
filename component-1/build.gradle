@@ -20,8 +20,6 @@ subprojects {
     }
 }
 
-release {
-    tagTemplate = "${project.name}-${version}"
-}
-
-afterReleaseBuild.dependsOn uploadArchives
+//release {
+//    tagTemplate = "${project.name}-${version}"
+//}

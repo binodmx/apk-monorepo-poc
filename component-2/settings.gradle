@@ -1,0 +1,3 @@
+rootProject.name = 'component-2'
+
+include 'sample-go-app'

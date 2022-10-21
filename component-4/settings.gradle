@@ -1,1 +1,3 @@
+rootProject.name = 'component-4'
+
 include 'sample-react-app'

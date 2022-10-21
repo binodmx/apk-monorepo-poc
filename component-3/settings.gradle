@@ -1,0 +1,3 @@
+rootProject.name = 'component-3'
+
+include 'sample-ballerina-service'

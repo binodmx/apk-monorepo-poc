@@ -1,0 +1,15 @@
+name: Analyze component-2
+
+on:
+  pull_request:
+    types: [opened]
+    paths:
+      - 'component-2/**' 
+
+jobs:
+  scan-file-changes:
+    name: Scan file changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "Detected file changes in compnent-2"

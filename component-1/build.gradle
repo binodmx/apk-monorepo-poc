@@ -18,8 +18,10 @@ subprojects {
     task('printProjectName').doLast {
         println "Project Name: $project.name"
     }
-
-    release {
-        tagTemplate = "${project.name}-${version}"
-    }
 }
+
+release {
+    tagTemplate = "${project.name}-${version}"
+}
+
+afterReleaseBuild.dependsOn uploadArchives

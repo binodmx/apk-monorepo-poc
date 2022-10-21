@@ -9,4 +9,5 @@ subprojects {
 
 release {
     tagTemplate = "${project.name}-${version}"
+    
 }

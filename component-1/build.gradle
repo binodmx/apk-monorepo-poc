@@ -1,20 +1,12 @@
-group 'org.example.java'
-
-buildscript {
-    repositories {
-        maven {
-            url 'https://plugins.gradle.org/m2/'
-        }
-    }
-    dependencies {
-        classpath 'net.researchgate:gradle-release:3.0.2'
-    }
+plugins {
+    id 'net.researchgate.release' version '3.0.2'
 }
+
+group 'org.example.java'
 
 subprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
-    apply plugin: 'net.researchgate.release'
 
     group = project.group
     version = project.version
@@ -25,9 +17,5 @@ subprojects {
 
     task('printProjectName').doLast {
         println "Project Name: $project.name"
-    }
-
-    release {
-        versionPropertyFile = '../gradle.properties'
     }
 }

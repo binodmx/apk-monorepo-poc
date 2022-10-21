@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: release
-        run: cd component-1 | gradle release -Prelease.useAutomaticVersion=true
+        run: cd component-1 && ./gradlew release -Prelease.useAutomaticVersion=true

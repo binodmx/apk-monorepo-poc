@@ -15,4 +15,4 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v2
       - name: release
-        run: ./component-1/gradlew release -Prelease.useAutomaticVersion=true
+        run: cd component-1 && ./gradlew release -Prelease.useAutomaticVersion=true

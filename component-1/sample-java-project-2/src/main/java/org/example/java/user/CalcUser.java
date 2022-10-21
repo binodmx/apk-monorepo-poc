@@ -9,6 +9,9 @@ public class CalcUser {
 
     }
 
+    /**
+     * @return random number
+     */
     public int generateRandomInt() {
         return calculator.getRandomInt();
     }

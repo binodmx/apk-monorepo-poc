@@ -20,6 +20,6 @@ subprojects {
     }
 }
 
-//release {
-//    tagTemplate = "${project.name}-${version}"
-//}
+release {
+    tagTemplate = '${project.name}-${version}'
+}

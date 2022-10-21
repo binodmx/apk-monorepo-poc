@@ -1,0 +1,16 @@
+name: Release component-1
+
+on:
+  pull_request:
+    types: [closed]
+    paths:
+      - 'component-1/**' 
+
+jobs:
+  build-and-release:
+    if: github.event.pull_request.merged == true
+    name: Build and release
+    runs-on: ubuntu-latest
+    steps:
+      - name: release
+        run: cd component-1 | gradle release -Prelease.useAutomaticVersion=true

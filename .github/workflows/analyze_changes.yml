@@ -1,8 +1,10 @@
-name: Analyze changes
+name: Analyze component-1
 
 on:
   pull_request:
     types: [opened]
+    paths:
+      - 'component-1/**' 
 
 jobs:
   scan-file-changes:

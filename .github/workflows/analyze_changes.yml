@@ -1,0 +1,14 @@
+name: Analyze changes
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  scan-file-changes:
+    name: Scan file changes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print message
+        run: echo "I ran"    
+

@@ -23,7 +23,7 @@ jobs:
         run: |
           cd component-4/sample-react-app
           docker build -t binodmx/sample-react-app .
-          docker login --username $DOCKER_USERNAME:  --password $DOCKER_PASSWORD
+          docker login --username $DOCKER_USERNAME --password $DOCKER_PASSWORD
           docker push binodmx/sample-react-app
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}

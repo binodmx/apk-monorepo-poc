@@ -21,3 +21,8 @@ task npm_test(type:Exec) {
     group 'npm'
     commandLine 'npm', 'test'
 }
+
+task docker_push(type:Exec) {
+    group 'docker'
+    commandLine 'docker'
+}

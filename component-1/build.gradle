@@ -7,6 +7,8 @@ plugins {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
+    // https://discuss.gradle.org/t/how-can-i-specify-dependency-versions-once-and-reuse-them-in-a-multi-module-project/31916
+    // apply from: file("../../dependencies.gradle")
 
     group = project.group
     version = project.version

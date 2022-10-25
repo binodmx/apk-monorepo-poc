@@ -1,3 +1,16 @@
+plugins {
+    id 'maven-publish'
+}
+
 dependencies {
     implementation project(':sample-java-project-1')
+}
+
+// the GAV of the generated POM can be set here
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
 }

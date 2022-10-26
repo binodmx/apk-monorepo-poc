@@ -1,3 +1,21 @@
 rootProject.name = 'component-3'
 
-include 'sample-ballerina-service'
+include ':sample-ballerina-service'
+include ':sample-java-project-3'
+
+// https://stackoverflow.com/questions/35606790/how-to-add-a-dependency-to-another-project-properly-using-gradle
+
+include ':component-1'
+project(':component-1').projectDir = new File("../component-1")
+
+include ':component-1:sample-java-project-1'
+project(':component-1:sample-java-project-1').projectDir = new File("../component-1/sample-java-project-1")
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files("../libs.versions.toml"))
+        }
+    }
+}
+

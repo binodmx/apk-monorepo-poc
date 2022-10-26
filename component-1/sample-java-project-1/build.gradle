@@ -21,6 +21,7 @@
 // https://docs.gradle.org/current/dsl/org.gradle.api.artifacts.dsl.DependencyHandler.html
 dependencies {
     implementation libs.commons.math3
+//    implementation 'org.apache.commons:commons-math3:3.6.1'
 //    implementation('org.springframework:spring-webmvc:4.0.3.RELEASE') {
 //        exclude group: 'commons-logging', module: 'commons-logging'
 //    }

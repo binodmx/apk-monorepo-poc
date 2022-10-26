@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+    implementation project(':component-1:sample-java-project-1')
+}
+
+repositories {
+    mavenCentral()
+}

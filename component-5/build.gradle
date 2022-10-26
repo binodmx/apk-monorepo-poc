@@ -1,0 +1,11 @@
+plugins {
+    id 'net.researchgate.release' version '3.0.2'
+}
+
+release {
+    tagTemplate = '${name}-${version}'
+}
+
+tasks.register('run') {
+    dependsOn gradle.includedBuild('component-1').task(':build')
+}

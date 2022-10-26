@@ -74,6 +74,7 @@ publishing {
     }
 }
 
+// https://stackoverflow.com/questions/37875932/generate-pom-xml-in-jar-with-gradle
 jar {
     manifest {
         attributes "Main-Class": "org.example.java.math.Calculator"

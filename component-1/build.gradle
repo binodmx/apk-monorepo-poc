@@ -55,11 +55,11 @@ subprojects {
             }
         }
     }
+
+    afterReleaseBuild.dependsOn publish
 }
 
 // https://github.com/researchgate/gradle-release/issues/158
 release {
     tagTemplate = '${name}-${version}'
 }
-
-afterReleaseBuild.dependsOn publish

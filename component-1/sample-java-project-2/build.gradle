@@ -1,37 +1,3 @@
-plugins {
-    id 'maven-publish'
-}
-
 dependencies {
     implementation project(':sample-java-project-1')
-}
-
-// the GAV of the generated POM can be set here
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId project.group
-            artifactId project.name
-            version = project.version
-
-            from components.java
-
-            pom {
-                name = 'My Library'
-                description = 'A concise description of my library'
-                url = 'http://www.example.com/library'
-            }
-        }
-    }
-    repositories {
-        maven {
-            name 'nexus'
-            url 'http://localhost:8081/nexus/content/repositories/releases/'
-            credentials {
-                username 'admin'
-                password 'admin123'
-            }
-            allowInsecureProtocol = true
-        }
-    }
 }

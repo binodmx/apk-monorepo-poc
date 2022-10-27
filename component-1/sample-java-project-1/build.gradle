@@ -1,12 +1,10 @@
-plugins {
-    id 'maven-publish'
-}
 //plugins {
     // https://docs.gradle.org/current/userguide/java_plugin.html
 //    id 'java'
 //    id 'project-report'
     // https://docs.gradle.org/current/userguide/jacoco_plugin.html
 //    id 'jacoco'
+//    id 'maven-publish'
 //}
 
 //group 'org.example.'
@@ -28,7 +26,7 @@ dependencies {
 //    implementation('org.springframework:spring-webmvc:4.0.3.RELEASE') {
 //        exclude group: 'commons-logging', module: 'commons-logging'
 //    }
-    testImplementation 'org.testng:testng:7.6.1'
+    testImplementation libs.testng
 }
 
 test {
@@ -53,38 +51,3 @@ test {
 //        }
 //    }
 //}
-
-// the GAV of the generated POM can be set here
-publishing {
-    publications {
-        maven(MavenPublication) {
-            from components.java
-        }
-    }
-    repositories {
-        maven {
-            name 'nexus'
-            url 'http://localhost:8081/nexus/content/repositories/releases/'
-            credentials {
-                username 'admin'
-                password 'admin123'
-            }
-            allowInsecureProtocol = true
-        }
-    }
-}
-
-// https://stackoverflow.com/questions/37875932/generate-pom-xml-in-jar-with-gradle
-jar {
-    manifest {
-        attributes "Main-Class": "org.example.java.math.Calculator"
-    }
-    into("META-INF/maven/$project.group/$project.name") {
-        from { generatePomFileForMavenPublication }
-        rename ".*", "pom.xml"
-    }
-
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
-}

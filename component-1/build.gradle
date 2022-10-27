@@ -7,6 +7,7 @@ plugins {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
+    apply plugin: 'maven-publish'
     // https://discuss.gradle.org/t/how-can-i-specify-dependency-versions-once-and-reuse-them-in-a-multi-module-project/31916
     // apply from: file("../../dependencies.gradle")
 
@@ -20,9 +21,45 @@ subprojects {
     task('printProjectName').doLast {
         println "Project Name: $project.name"
     }
+
+    jar {
+        // https://stackoverflow.com/questions/37875932/generate-pom-xml-in-jar-with-gradle
+        into("META-INF/maven/$project.group/$project.name") {
+            from { generatePomFileForMavenPublication }
+            rename ".*", "pom.xml"
+        }
+
+//        from {
+//            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//        }
+    }
+
+    // the GAV of the generated POM can be set here
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name 'nexus'
+                def snapshotsRepoUrl = 'http://localhost:8081/nexus/content/repositories/snapshots/'
+                def releasesRepoUrl = 'http://localhost:8081/nexus/content/repositories/releases/'
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                credentials {
+                    username nexus_username
+                    password nexus_password
+                }
+                allowInsecureProtocol = true
+            }
+        }
+    }
 }
 
 // https://github.com/researchgate/gradle-release/issues/158
 release {
     tagTemplate = '${name}-${version}'
 }
+
+afterReleaseBuild.dependsOn publish

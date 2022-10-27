@@ -1,4 +1,5 @@
 #https://docs.gradle.org/current/userguide/platforms.html
+
 [versions]
 org-apache-commons = "3.6.1"
 #my-lib = { strictly = "[1.0, 2.0[", prefer = "1.2" }
@@ -6,9 +7,10 @@ org-apache-commons = "3.6.1"
 [libraries]
 #commons-math3 = { group = "org.apache.commons", name = "commons-math3", version = "3.6.1" }
 commons-math3 = { module = "org.apache.commons:commons-math3", version.ref = "org-apache-commons"}
+testng = { module = "org.testng:testng", version = "7.6.1" }
 
 #[bundles]
 #groovy = ["groovy-core", "groovy-json", "groovy-nio"]
-#
+
 #[plugins]
 #jmh = { id = "me.champeau.jmh", version = "0.6.5" }

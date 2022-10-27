@@ -1,11 +1,3 @@
-// https://github.com/gradle/gradle/issues/18644
-// https://github.com/gradle/gradle/issues/13891
-// https://stackoverflow.com/questions/51535079/add-multi-project-itself-as-a-dependency-in-another-project
-// https://docs.gradle.org/current/userguide/composite_builds.html
-rootProject.name = 'component-5'
+rootProject.name = 'component-4'
 
-includeBuild '../component-1'
-includeBuild '../component-2'
-includeBuild '../component-3'
-includeBuild '../component-4'
-
+include 'sample-react-app'

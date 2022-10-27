@@ -1,13 +1,61 @@
 plugins {
+    // https://github.com/researchgate/gradle-release#multi-project-builds
+    // https://github.com/researchgate/gradle-release/issues/102
     id 'net.researchgate.release' version '3.0.2'
 }
 
 subprojects {
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'maven-publish'
+    // https://discuss.gradle.org/t/how-can-i-specify-dependency-versions-once-and-reuse-them-in-a-multi-module-project/31916
+    // apply from: file("../../dependencies.gradle")
+
     group = project.group
     version = project.version
+
+    repositories {
+        mavenCentral()
+    }
+
+    jar {
+        // https://stackoverflow.com/questions/37875932/generate-pom-xml-in-jar-with-gradle
+        into("META-INF/maven/$project.group/$project.name") {
+            from { generatePomFileForMavenPublication }
+            rename ".*", "pom.xml"
+        }
+
+//        from {
+//            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+//        }
+    }
+
+    // the GAV of the generated POM can be set here
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name 'nexus'
+                def snapshotsRepoUrl = 'http://localhost:8081/nexus/content/repositories/snapshots/'
+                def releasesRepoUrl = 'http://localhost:8081/nexus/content/repositories/releases/'
+                url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+                credentials {
+                    username rootProject.hasProperty("nexus_username") ? nexus_username : ''
+                    password rootProject.hasProperty("nexus_password") ? nexus_password : ''
+                }
+                allowInsecureProtocol = true
+            }
+        }
+    }
+
+    afterReleaseBuild.dependsOn publish
 }
 
+// https://github.com/researchgate/gradle-release/issues/158
 release {
-    tagTemplate = "${project.name}-${version}"
-    
+    tagTemplate = '${name}-${version}'
 }

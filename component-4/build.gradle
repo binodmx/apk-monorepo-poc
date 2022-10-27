@@ -6,11 +6,11 @@ subprojects {
     group = project.group
     version = project.version
 
-    task('printProjectName').doLast {
-        println "Project Name: $project.name"
-    }
+//    task('printProjectName').doLast {
+//        println "Project Name: $project.name"
+//    }
 }
 
 release {
-    tagTemplate = '${name}-${version}'
+    tagTemplate = '${project.name}-${version}'
 }

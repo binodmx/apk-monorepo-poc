@@ -1,3 +1,13 @@
 rootProject.name = 'component-2'
 
-include 'sample-go-app'
+include ':sample-java-project-3'
+
+includeBuild '../component-1'
+
+dependencyResolutionManagement {
+    versionCatalogs {
+        libs {
+            from(files("../libs.versions.toml"))
+        }
+    }
+}

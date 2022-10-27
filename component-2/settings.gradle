@@ -2,12 +2,8 @@ rootProject.name = 'component-2'
 
 include ':sample-java-project-3'
 
-includeBuild '../component-1'
-
-dependencyResolutionManagement {
-    versionCatalogs {
-        libs {
-            from(files("../libs.versions.toml"))
-        }
+includeBuild('../component-1') {
+    dependencySubstitution {
+        substitute module('org.example.java:sample-java-project-1') using project(':sample-java-project-1')
     }
 }

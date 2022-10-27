@@ -58,5 +58,7 @@ subprojects {
 
 // https://github.com/researchgate/gradle-release/issues/158
 release {
+    failOnSnapshotDependencies = false
+    failOnCommitNeeded = false
     tagTemplate = '${name}-${version}'
 }

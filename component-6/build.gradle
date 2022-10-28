@@ -3,7 +3,8 @@ plugins {
 }
 
 release {
-//    dependsOn ':component-1:release'
     failOnCommitNeeded = false
     tagTemplate = '${name}-${version}'
 }
+
+beforeReleaseBuild.dependsOn ':component-1:printName'

@@ -63,3 +63,7 @@ subprojects {
 release {
     tagTemplate = '${name}-${version}'
 }
+
+task('printName').doLast {
+    println "Name: $project.name"
+}

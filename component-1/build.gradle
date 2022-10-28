@@ -62,11 +62,15 @@ subprojects {
 // https://github.com/researchgate/gradle-release/issues/158
 release {
     failOnCommitNeeded = false
+    failOnUpdateNeeded = false
     tagTemplate = '${name}-${version}'
 }
 
-task('printName').doLast {
+task('printName') {
     println "NEXUS: " + System.env.nexus_username
     println "Name: $project.name"
 }
 
+task('printHi') {
+    println "hiiiiiii"
+}

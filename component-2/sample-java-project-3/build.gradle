@@ -1,5 +1,5 @@
 dependencies {
     // https://stackoverflow.com/questions/60464719/gradle-includebuild-vs-implementation-project
-    implementation 'org.example.java:sample-java-project-1'
+    implementation 'org.example.java:sample-java-project-1:0.1.5'
 }
 

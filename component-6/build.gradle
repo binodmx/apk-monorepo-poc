@@ -1,33 +1,6 @@
-task task1 {
-    dependsOn gradle.includedBuild('component-1').task(':release')
-}
-
-task task2 {
-    dependsOn task1
-    dependsOn gradle.includedBuild('component-2').task(':release')
-}
-
-task task3 {
-    dependsOn task2
-    dependsOn gradle.includedBuild('component-3').task(':release')
-}
-
-task task4 {
-    dependsOn task3
-    dependsOn gradle.includedBuild('component-4').task(':release')
-}
-
-task task5 {
-    dependsOn task4
-    dependsOn gradle.includedBuild('component-5').task(':release')
-}
-
 task releaseAll {
-//    dependsOn gradle.includedBuild('component-1').task(':release')
-//    dependsOn gradle.includedBuild('component-2').task(':release')
-//    dependsOn gradle.includedBuild('component-3').task(':release')
-//    dependsOn gradle.includedBuild('component-4').task(':release')
-//    dependsOn gradle.includedBuild('component-5').task(':release')
-//    dependsOn gradle.includedBuilds*.task(':release')
-    dependsOn task5
+    dependsOn gradle.includedBuilds*.task(':release')
+    doLast {
+        println 'DONE DONE DONE'
+    }
 }

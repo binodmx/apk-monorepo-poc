@@ -15,6 +15,7 @@ task docker_login(type:Exec) {
 
 task docker_push(type:Exec) {
     group 'docker'
+    dependsOn docker_build
     dependsOn docker_login
     def imageName = 'binodmx/' + project.name
     commandLine 'docker', 'push', imageName

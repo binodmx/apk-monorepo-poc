@@ -25,10 +25,10 @@ subprojects {
         commandLine 'go', 'build', 'math.go'
     }
 
-    afterReleaseBuild.dependsOn docker_push
+    // afterReleaseBuild.dependsOn docker_push
 }
 
 release {
     failOnCommitNeeded = false
-    tagTemplate = '${project.name}-${version}'
+    tagTemplate = '${name}-${version}'
 }

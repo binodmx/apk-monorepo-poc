@@ -6,11 +6,16 @@ subprojects {
     group = project.group
     version = project.version
 
+    apply from: "$rootDir/../docker.gradle"
+
     task('printProjectName').doLast {
         println "Project Name: $project.name"
     }
+
+    afterReleaseBuild.dependsOn docker_push
 }
 
 release {
+    failOnCommitNeeded = false
     tagTemplate = '${name}-${version}'
 }

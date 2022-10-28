@@ -60,6 +60,5 @@ subprojects {
 release {
     isRelease = true
     failOnCommitNeeded = false
-    failOnUpdateNeeded = false
     tagTemplate = '${name}-${version}'
 }

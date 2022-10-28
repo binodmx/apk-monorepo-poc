@@ -21,7 +21,6 @@ subprojects {
 
     task go_build(type:Exec) {
         group 'go'
-        dependsOn go_test
         commandLine 'go', 'build', 'math.go'
     }
 

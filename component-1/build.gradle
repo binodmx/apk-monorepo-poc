@@ -70,6 +70,3 @@ task('printName') {
     println "Name: $project.name"
 }
 
-task('printHi') {
-    println "hiiiiiii"
-}

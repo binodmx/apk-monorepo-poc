@@ -2,7 +2,6 @@ plugins {
     id 'net.researchgate.release' version '3.0.2'
 }
 
-release {
-    failOnCommitNeeded = false
-    tagTemplate = '${name}-${version}'
+task releasex {
+    dependsOn gradle.includedBuild('component-1').task(':release')
 }

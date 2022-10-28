@@ -5,9 +5,30 @@ plugins {
 subprojects {
     group = project.group
     version = project.version
+
+    apply from: "$rootDir/../docker.gradle"
+
+    // https://docs.gradle.org/current/dsl/org.gradle.api.tasks.Exec.html
+    task go_clean(type:Exec) {
+        group 'go'
+        commandLine 'go', 'clean'
+    }
+
+    task go_test(type:Exec) {
+        group 'go'
+        commandLine 'go', 'test'
+    }
+
+    task go_build(type:Exec) {
+        group 'go'
+        dependsOn go_test
+        commandLine 'go', 'build', 'math.go'
+    }
+
+    afterReleaseBuild.dependsOn docker_push
 }
 
 release {
-    tagTemplate = "${project.name}-${version}"
-    
+    failOnCommitNeeded = false
+    tagTemplate = '${project.name}-${version}'
 }

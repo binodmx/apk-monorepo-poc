@@ -1,0 +1,21 @@
+task docker_build(type:Exec) {
+    group 'docker'
+    def imageName = 'binodmx/' + project.name
+    commandLine 'docker', 'build', '-t', imageName, '.'
+}
+
+task docker_login(type:Exec) {
+    group 'docker'
+    if (rootProject.hasProperty("docker_username") && rootProject.hasProperty("docker_password")) {
+    	commandLine 'docker', 'login', '--username', docker_username, '--password', docker_password
+    } else {
+        commandLine 'echo', 'Docker Hub credentials not found!'
+    }
+}
+
+task docker_push(type:Exec) {
+    group 'docker'
+    dependsOn docker_login
+    def imageName = 'binodmx/' + project.name
+    commandLine 'docker', 'push', imageName
+}

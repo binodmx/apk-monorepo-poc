@@ -1,6 +1,6 @@
-plugins {
-    id 'net.researchgate.release' version '3.0.2'
-}
+//plugins {
+//    id 'net.researchgate.release' version '3.0.2'
+//}
 
 task releasex {
     dependsOn gradle.includedBuild('component-1').task(':release')

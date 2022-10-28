@@ -9,7 +9,3 @@ includeBuild '../component-1'
 // includeBuild '../component-3'
 // includeBuild '../component-4'
 // includeBuild '../component-5'
-
-//include 'component-1'
-//
-//project(':component-1').projectDir = file('../component-1')

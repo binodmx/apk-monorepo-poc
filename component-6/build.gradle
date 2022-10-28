@@ -2,6 +2,10 @@
 //    id 'net.researchgate.release' version '3.0.2'
 //}
 
-task releasex {
+task releaseAll {
     dependsOn gradle.includedBuild('component-1').task(':release')
+//    dependsOn gradle.includedBuild('component-2').task(':release')
+//    dependsOn gradle.includedBuild('component-3').task(':release')
+//    dependsOn gradle.includedBuild('component-4').task(':release')
+//    dependsOn gradle.includedBuild('component-5').task(':release')
 }

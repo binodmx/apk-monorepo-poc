@@ -6,11 +6,9 @@ task docker_build(type:Exec) {
 
 task docker_login(type:Exec) {
     group 'docker'
-    if (rootProject.hasProperty("docker_username") && rootProject.hasProperty("docker_password")) {
-    	commandLine 'docker', 'login', '--username', docker_username, '--password', docker_password
-    } else {
-        commandLine 'echo', 'Docker Hub credentials not found!'
-    }
+    def username = rootProject.hasProperty("docker_username") ? docker_username : System.getenv("docker_username")
+    def password = rootProject.hasProperty("docker_password") ? docker_password : System.getenv("docker_password")
+    commandLine 'docker', 'login', '--username', username, '--password', password
 }
 
 task docker_push(type:Exec) {

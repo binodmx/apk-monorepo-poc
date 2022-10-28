@@ -45,8 +45,8 @@ subprojects {
                 def releasesRepoUrl = 'http://localhost:8081/nexus/content/repositories/releases/'
                 url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
                 credentials {
-                    username rootProject.hasProperty("nexus_username") ? nexus_username : ''
-                    password rootProject.hasProperty("nexus_password") ? nexus_password : ''
+                    username rootProject.hasProperty("nexus_username") ? nexus_username : System.getenv("nexus_username")
+                    password rootProject.hasProperty("nexus_password") ? nexus_password : System.getenv("nexus_password")
                 }
                 allowInsecureProtocol = true
             }

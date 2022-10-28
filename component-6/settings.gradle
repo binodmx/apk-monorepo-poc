@@ -2,10 +2,14 @@
 // https://github.com/gradle/gradle/issues/13891
 // https://stackoverflow.com/questions/51535079/add-multi-project-itself-as-a-dependency-in-another-project
 // https://docs.gradle.org/current/userguide/composite_builds.html
-rootProject.name = 'component-5'
+rootProject.name = 'component-6'
 
-includeBuild '../component-1'
-includeBuild '../component-2'
-includeBuild '../component-3'
-includeBuild '../component-4'
+// includeBuild '../component-1'
+// includeBuild '../component-2'
+// includeBuild '../component-3'
+// includeBuild '../component-4'
+// includeBuild '../component-5'
 
+//include ':component-1'
+//
+//project(':component-1').projectDir = file('../component-1')

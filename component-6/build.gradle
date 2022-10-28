@@ -3,9 +3,7 @@ plugins {
 }
 
 release {
+//    dependsOn ':component-1:release'
+    failOnCommitNeeded = false
     tagTemplate = '${name}-${version}'
-}
-
-tasks.register('run') {
-    dependsOn gradle.includedBuild('component-1').task(':build')
 }

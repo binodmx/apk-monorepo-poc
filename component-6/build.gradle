@@ -1,3 +1,27 @@
+// task releaseComponent1(type:Exec) {
+//     buildDir '../component-1'
+//     commandLine './gradlew', 'release'
+//     doLast {
+//         println "component-1 release is being excuted"
+//     }
+// }
+
+// task releaseComponent2(type:Exec) {
+//     buildDir '../component-2'
+//     commandLine './gradlew', 'release'
+//     doLast {
+//         println "component-2 release is being excuted"
+//     }
+// }
+
+// task releaseComponent3(type:Exec) {
+//     buildDir '../component-3'
+//     commandLine './gradlew', 'release'
+//     doLast {
+//         println "component-3 release is being excuted"
+//     }
+// }
+
 task releaseComponent1 {
     dependsOn gradle.includedBuild('component-1').task(':release')
 }
@@ -10,27 +34,41 @@ task releaseComponent3 {
     dependsOn gradle.includedBuild('component-3').task(':release')
 }
 
-task releaseComponent4 {
-    dependsOn gradle.includedBuild('component-4').task(':release')
+task releaseAll() {
+    println "All released"
 }
 
-task releaseComponent5 {
-    dependsOn gradle.includedBuild('component-5').task(':release')
-}
+releaseComponent1.configure { finalizedBy("releaseComponent2") }
+releaseComponent2.configure { finalizedBy("releaseComponent3") }
+releaseComponent3.configure { finalizedBy("releaseAll") }
 
-task releaseAll {
-    dependsOn 'releaseComponent1'
-    dependsOn 'releaseComponent2'
-    dependsOn 'releaseComponent3'
-}
 
-releaseComponent2.configure {
-    mustRunAfter releaseComponent1
-}
 
-releaseComponent3.configure {
-    mustRunAfter releaseComponent2
-}
+// task releaseComponent4 {
+//     dependsOn gradle.includedBuild('component-4').task(':release')
+// }
+
+// task releaseComponent5 {
+//     dependsOn gradle.includedBuild('component-5').task(':release')
+// }
+
+
+
+// releaseComponent3.configure { finalizedBy("releaseAll")}
+
+// task runAll {
+//     dependsOn 'releaseComponent1'
+//     dependsOn 'releaseComponent2'
+//     dependsOn 'releaseComponent3'
+// }
+
+// releaseComponent2.configure {
+//     mustRunAfter releaseComponent1
+// }
+
+// releaseComponent3.configure {
+//     mustRunAfter releaseComponent2
+// }
 
 // releaseComponent2.configure {
 //     finalizedBy releaseComponent3

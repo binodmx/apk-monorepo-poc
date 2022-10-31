@@ -67,7 +67,8 @@ release {
 }
 
 task('printName') {
-    println "NEXUS: " + System.env.nexus_username
-    println "Name: $project.name"
+    doLast {
+        println "NEXUS: " + System.env.nexus_username
+        println "Name: $project.name"
+    }
 }
-

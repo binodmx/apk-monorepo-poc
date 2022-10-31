@@ -4,8 +4,8 @@
 // https://docs.gradle.org/current/userguide/composite_builds.html
 rootProject.name = 'component-6'
 
-includeBuild '../component-1'
-includeBuild '../component-2'
-includeBuild '../component-3'
-includeBuild '../component-4'
-includeBuild '../component-5'
+// includeBuild '../component-1'
+// includeBuild '../component-2'
+// includeBuild '../component-3'
+// includeBuild '../component-4'
+// includeBuild '../component-5'

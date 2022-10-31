@@ -1,92 +1,52 @@
 task releaseComponent1(type:Exec) {
-    // commandLine 'cd', '../component-1'
     workingDir '../component-1'
-    commandLine 'pwd'
     commandLine './gradlew', 'release'
     doLast {
-        println "component-1 release is being excuted"
+        println "component-1 release is being executed"
     }
 }
 
 task releaseComponent2(type:Exec) {
     workingDir '../component-2'
-    commandLine 'pwd'
     commandLine './gradlew', 'release'
     doLast {
-        println "component-2 release is being excuted"
+        println "component-2 release is being executed"
     }
 }
 
 task releaseComponent3(type:Exec) {
     workingDir '../component-3'
-    commandLine 'pwd'
     commandLine './gradlew', 'release'
     doLast {
-        println "component-3 release is being excuted"
+        println "component-3 release is being executed"
     }
 }
 
-// task releaseComponent1 {
-//     dependsOn gradle.includedBuild('component-1').task(':release')
-// }
-
-// task releaseComponent2 {
-//     dependsOn gradle.includedBuild('component-2').task(':release')
-// }
-
-// task releaseComponent3 {
-//     dependsOn gradle.includedBuild('component-3').task(':release')
-// }
-
-task releaseAll() {
-    dependsOn releaseComponent1
-    dependsOn releaseComponent2
-    dependsOn releaseComponent3
+task releaseComponent4(type:Exec) {
+    workingDir '../component-4'
+    commandLine './gradlew', 'release'
+    doLast {
+        println "component-4 release is being executed"
+    }
 }
 
-releaseComponent2.configure { mustRunAfter("releaseComponent1") }
-releaseComponent3.configure { mustRunAfter("releaseComponent2") }
-releaseAll.configure { mustRunAfter("releaseComponent3") }
+task releaseComponent5(type:Exec) {
+    workingDir '../component-5'
+    commandLine './gradlew', 'release'
+    doLast {
+        println "component-5 release is being executed"
+    }
+}
 
 
+task releaseAll() {
+    doLast {
+        println "All components released successfully!"
+    }
+}
 
-// task releaseComponent4 {
-//     dependsOn gradle.includedBuild('component-4').task(':release')
-// }
-
-// task releaseComponent5 {
-//     dependsOn gradle.includedBuild('component-5').task(':release')
-// }
-
-
-
-// releaseComponent3.configure { finalizedBy("releaseAll")}
-
-// task runAll {
-//     dependsOn 'releaseComponent1'
-//     dependsOn 'releaseComponent2'
-//     dependsOn 'releaseComponent3'
-// }
-
-// releaseComponent2.configure {
-//     mustRunAfter releaseComponent1
-// }
-
-// releaseComponent3.configure {
-//     mustRunAfter releaseComponent2
-// }
-
-// releaseComponent2.configure {
-//     finalizedBy releaseComponent3
-// }
-
-// releaseComponent3.configure {
-//     finalizedBy releaseComponent4
-// }
-
-// releaseComponent4.configure {
-//     finalizedBy releaseComponent5
-// }
-
-
-//https://stackoverflow.com/questions/32907275/gradle-custom-task-which-runs-multiple-tasks
+releaseAll.configure { finalizedBy("releaseComponent1") }
+releaseComponent1.configure { finalizedBy("releaseComponent2") }
+releaseComponent2.configure { finalizedBy("releaseComponent3") }
+releaseComponent3.configure { finalizedBy("releaseComponent4") }
+releaseComponent4.configure { finalizedBy("releaseComponent5") }

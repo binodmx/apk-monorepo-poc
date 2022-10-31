@@ -1,38 +1,42 @@
-// task releaseComponent1(type:Exec) {
-//     buildDir '../component-1'
-//     commandLine './gradlew', 'release'
-//     doLast {
-//         println "component-1 release is being excuted"
-//     }
-// }
-
-// task releaseComponent2(type:Exec) {
-//     buildDir '../component-2'
-//     commandLine './gradlew', 'release'
-//     doLast {
-//         println "component-2 release is being excuted"
-//     }
-// }
-
-// task releaseComponent3(type:Exec) {
-//     buildDir '../component-3'
-//     commandLine './gradlew', 'release'
-//     doLast {
-//         println "component-3 release is being excuted"
-//     }
-// }
-
-task releaseComponent1 {
-    dependsOn gradle.includedBuild('component-1').task(':release')
+task releaseComponent1(type:Exec) {
+    // commandLine 'cd', '../component-1'
+    workingDir '../component-1'
+    commandLine 'pwd'
+    commandLine './gradlew', 'release'
+    doLast {
+        println "component-1 release is being excuted"
+    }
 }
 
-task releaseComponent2 {
-    dependsOn gradle.includedBuild('component-2').task(':release')
+task releaseComponent2(type:Exec) {
+    workingDir '../component-2'
+    commandLine 'pwd'
+    // commandLine './gradlew', 'release'
+    doLast {
+        println "component-2 release is being excuted"
+    }
 }
 
-task releaseComponent3 {
-    dependsOn gradle.includedBuild('component-3').task(':release')
+task releaseComponent3(type:Exec) {
+    workingDir '../component-3'
+    commandLine 'pwd'
+    // commandLine './gradlew', 'release'
+    doLast {
+        println "component-3 release is being excuted"
+    }
 }
+
+// task releaseComponent1 {
+//     dependsOn gradle.includedBuild('component-1').task(':release')
+// }
+
+// task releaseComponent2 {
+//     dependsOn gradle.includedBuild('component-2').task(':release')
+// }
+
+// task releaseComponent3 {
+//     dependsOn gradle.includedBuild('component-3').task(':release')
+// }
 
 task releaseAll() {
     println "All released"

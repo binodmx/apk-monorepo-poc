@@ -19,11 +19,11 @@ task releaseComponent5 {
 }
 
 task releaseAll {
-    dependsOn 'releaseComponent1'
+    dependsOn 'releaseComponent4'
     dependsOn 'releaseComponent3'
 }
 
-releaseComponent1.configure {
+releaseComponent4.configure {
     mustRunAfter releaseComponent3
 }
 

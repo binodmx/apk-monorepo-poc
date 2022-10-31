@@ -18,9 +18,11 @@ task releaseComponent5 {
     dependsOn gradle.includedBuild('component-5').task(':release')
 }
 
-// task releaseAll {
-//     finalizedBy releaseComponent1
-// }
+task releaseAll {
+    dependsOn 'releaseComponent1'
+    dependsOn 'releaseComponent3'
+    tasks.findByName('releaseComponent1').mustRunAfter 'releaseComponent3'
+}
 
 // releaseComponent1.configure {
 //     finalizedBy releaseComponent2

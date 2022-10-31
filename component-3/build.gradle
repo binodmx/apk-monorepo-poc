@@ -24,7 +24,7 @@ subprojects {
         commandLine 'go', 'build', 'math.go'
     }
 
-    afterReleaseBuild.dependsOn docker_push
+    // afterReleaseBuild.dependsOn docker_push
 }
 
 release {

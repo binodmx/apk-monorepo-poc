@@ -18,27 +18,25 @@ task releaseComponent5 {
     dependsOn gradle.includedBuild('component-5').task(':release')
 }
 
+task releaseAll {
+    finalizedBy releaseComponent1
+}
+
+releaseComponent1.configure {
+    finalizedBy releaseComponent2
+}
+
 releaseComponent2.configure {
-    mustRunAfter releaseComponent1
+    finalizedBy releaseComponent3
 }
 
 releaseComponent3.configure {
-    mustRunAfter releaseComponent2
+    finalizedBy releaseComponent4
 }
 
 releaseComponent4.configure {
-    mustRunAfter releaseComponent3
+    finalizedBy releaseComponent5
 }
 
-releaseComponent5.configure {
-    mustRunAfter releaseComponent4
-}
 
-task releaseAll {
-    dependsOn 'releaseComponent1'
-    dependsOn 'releaseComponent2'
-    dependsOn 'releaseComponent3'
-    dependsOn 'releaseComponent4'
-    dependsOn 'releaseComponent5'
-}
 //https://stackoverflow.com/questions/32907275/gradle-custom-task-which-runs-multiple-tasks

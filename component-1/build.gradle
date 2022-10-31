@@ -62,6 +62,7 @@ subprojects {
 // https://github.com/researchgate/gradle-release/issues/158
 release {
     failOnCommitNeeded = false
+    failOnUpdateNeeded = false
     tagTemplate = '${name}-${version}'
 }
 

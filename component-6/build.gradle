@@ -1,6 +1,32 @@
-task releaseAll {
-    dependsOn gradle.includedBuilds*.task(':release')
-    doLast {
-        println 'DONE DONE DONE'
-    }
+task releaseComponent1 {
+    dependsOn gradle.includedBuild('component-1').task(':release')
 }
+
+task releaseComponent2 {
+    dependsOn gradle.includedBuild('component-2').task(':release')
+}
+
+task releaseComponent3 {
+    dependsOn gradle.includedBuild('component-3').task(':release')
+}
+
+task releaseComponent4 {
+    dependsOn gradle.includedBuild('component-4').task(':release')
+}
+
+task releaseComponent5 {
+    dependsOn gradle.includedBuild('component-5').task(':release')
+}
+
+task releaseAll {
+    dependsOn 'releaseComponent1'
+    dependsOn 'releaseComponent2'
+    dependsOn 'releaseComponent3'
+    dependsOn 'releaseComponent4'
+    dependsOn 'releaseComponent5'
+    tasks.getByName('releaseComponent2').mustRunAfter('releaseComponent1')
+    tasks.getByName('releaseComponent3').mustRunAfter('releaseComponent2')
+    tasks.getByName('releaseComponent4').mustRunAfter('releaseComponent3')
+    tasks.getByName('releaseComponent5').mustRunAfter('releaseComponent4')
+}
+//https://stackoverflow.com/questions/32907275/gradle-custom-task-which-runs-multiple-tasks

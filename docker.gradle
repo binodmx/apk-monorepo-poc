@@ -1,20 +1,32 @@
-task docker_build(type:Exec) {
-    group 'docker'
-    def imageName = 'binodmx/' + project.name
-    commandLine 'docker', 'build', '-t', imageName, '.'
-}
+def imageName = System.getenv("docker_username") + '/' + project.name + ':' + project.version
 
 task docker_login(type:Exec) {
     group 'docker'
-    def username = rootProject.hasProperty("docker_username") ? docker_username : System.getenv("docker_username")
-    def password = rootProject.hasProperty("docker_password") ? docker_password : System.getenv("docker_password")
-    commandLine 'docker', 'login', '--username', username, '--password', password
+    doLast {
+        commandLine 'docker', 'login', '--username', System.getenv("docker_username"), '--password', System.getenv("docker_password")
+    }
+}
+
+
+task docker_build(type:Exec) {
+    group 'docker'
+    doLast {
+        commandLine 'docker', 'build', '-t', imageName, '.'
+    }
 }
 
 task docker_push(type:Exec) {
     group 'docker'
-    dependsOn docker_build
     dependsOn docker_login
-    def imageName = 'binodmx/' + project.name
-    commandLine 'docker', 'push', imageName
+    dependsOn docker_build
+    doLast {
+        commandLine 'docker', 'push', imageName
+    }
+}
+
+task printImageName {
+    group 'docker'
+    doLast {
+        println imageName
+    }
 }

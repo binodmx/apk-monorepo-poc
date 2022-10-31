@@ -11,7 +11,7 @@ task releaseComponent1(type:Exec) {
 task releaseComponent2(type:Exec) {
     workingDir '../component-2'
     commandLine 'pwd'
-    // commandLine './gradlew', 'release'
+    commandLine './gradlew', 'release'
     doLast {
         println "component-2 release is being excuted"
     }

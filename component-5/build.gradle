@@ -12,7 +12,7 @@ subprojects {
         println "Project Name: $project.name"
     }
 
-    afterReleaseBuild.dependsOn docker_push
+    // afterReleaseBuild.dependsOn docker_push
 }
 
 release {

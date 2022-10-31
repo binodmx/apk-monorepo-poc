@@ -21,12 +21,11 @@ task releaseComponent5 {
 task releaseAll {
     dependsOn 'releaseComponent1'
     dependsOn 'releaseComponent3'
-    tasks.findByName('releaseComponent1').mustRunAfter 'releaseComponent3'
 }
 
-// releaseComponent1.configure {
-//     finalizedBy releaseComponent2
-// }
+releaseComponent1.configure {
+    mustRunAfter releaseComponent3
+}
 
 // releaseComponent2.configure {
 //     finalizedBy releaseComponent3

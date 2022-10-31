@@ -39,12 +39,14 @@ task releaseComponent3(type:Exec) {
 // }
 
 task releaseAll() {
-    println "All released"
+    dependsOn releaseComponent1
+    dependsOn releaseComponent2
+    dependsOn releaseComponent3
 }
 
-releaseComponent1.configure { finalizedBy("releaseComponent2") }
-releaseComponent2.configure { finalizedBy("releaseComponent3") }
-releaseComponent3.configure { finalizedBy("releaseAll") }
+releaseComponent2.configure { mustRunAfter("releaseComponent1") }
+releaseComponent3.configure { mustRunAfter("releaseComponent2") }
+releaseAll.configure { mustRunAfter("releaseComponent3") }
 
 
 

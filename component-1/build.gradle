@@ -56,7 +56,7 @@ subprojects {
         }
     }
 
-    afterReleaseBuild.dependsOn publish
+    // afterReleaseBuild.dependsOn publish
 }
 
 // https://github.com/researchgate/gradle-release/issues/158

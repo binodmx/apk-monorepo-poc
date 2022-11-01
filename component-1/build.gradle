@@ -19,8 +19,11 @@ subprojects {
         mavenCentral()
     }
 
-    task('printProjectName').doLast {
-        println "Project Name: $project.name"
+    tasks.register('printProjectName', Exec) {
+        commandLine 'echo', 'alkgjhweoig'
+        doLast {
+            println "Project Name: $project.name"
+        }
     }
 
     jar {

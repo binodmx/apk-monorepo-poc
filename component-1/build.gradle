@@ -8,6 +8,7 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'jacoco'
     apply plugin: 'maven-publish'
+    apply plugin: 'checkstyle'
     // https://discuss.gradle.org/t/how-can-i-specify-dependency-versions-once-and-reuse-them-in-a-multi-module-project/31916
     // apply from: file("../../dependencies.gradle")
 
@@ -56,7 +57,11 @@ subprojects {
         }
     }
 
-    // afterReleaseBuild.dependsOn publish
+     afterReleaseBuild.dependsOn publish
+
+    checkstyle {
+        configFile = rootProject.file('checkstyle/checkstyle.xml')
+    }
 }
 
 // https://github.com/researchgate/gradle-release/issues/158

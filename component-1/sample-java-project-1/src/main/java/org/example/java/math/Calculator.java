@@ -3,12 +3,12 @@ package org.example.java.math;
 import org.apache.commons.math3.random.RandomDataGenerator;
 
 /**
- * Calculator class is used to perform simple mathematical operations
+ * Calculator class is used to perform simple mathematical operations.
  */
 public class Calculator {
 
     /**
-     * Calculator constructor method
+     * Calculator constructor method.
      */
     public Calculator() {
 

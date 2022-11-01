@@ -2,11 +2,14 @@
 
 [versions]
 org-apache-commons = "3.6.1"
+
 #my-lib = { strictly = "[1.0, 2.0[", prefer = "1.2" }
 
 [libraries]
 #commons-math3 = { group = "org.apache.commons", name = "commons-math3", version = "3.6.1" }
-commons-math3 = { module = "org.apache.commons:commons-math3", version.ref = "org-apache-commons"}
+commons-math3 = { module = "org.apache.commons:commons-math3", version.ref = "org-apache-commons" }
+log4j-api = { module = "org.apache.logging.log4j:log4j-api", version = "2.11.2" }
+log4j-core = { module = "org.apache.logging.log4j:log4j-core", version = "2.11.2" }
 testng = { module = "org.testng:testng", version = "7.6.1" }
 
 #[bundles]

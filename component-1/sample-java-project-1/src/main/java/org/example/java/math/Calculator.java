@@ -31,5 +31,4 @@ public class Calculator {
         return randomDataGenerator.nextInt(1, 10);
     }
 
-
 }

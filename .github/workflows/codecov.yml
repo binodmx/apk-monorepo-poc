@@ -17,6 +17,6 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v2
       - name: run tests
-        run: ./gradlew jacocoTestReport
+        run: ./gradlew build
       - name: upload coverage reports to Codecov with GitHub Action
         uses: codecov/codecov-action@v3

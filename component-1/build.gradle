@@ -13,7 +13,7 @@ dependencies {
 
 reporting {
     reports {
-        testCodeCoverageReport(JacocoCoverageReport) { 
+        jacocoTestReport(JacocoCoverageReport) { 
             testType = TestSuiteType.UNIT_TEST
         }
     }
@@ -48,6 +48,15 @@ subprojects {
     tasks.named("jacocoTestReport") {
         enabled = false
     }
+
+    // jacocoTestReport {
+    //     reports {
+    //         xml.enabled true
+    //         html.enabled false
+    //     }
+    // }
+
+    // check.dependsOn jacocoTestReport
 
     jar {
         // https://stackoverflow.com/questions/37875932/generate-pom-xml-in-jar-with-gradle
@@ -88,15 +97,6 @@ subprojects {
     checkstyle {
         configFile = rootProject.file('checkstyle/checkstyle.xml')
     }
-    
-    jacocoTestReport {
-        reports {
-            xml.enabled true
-            html.enabled false
-        }
-    }
-
-    check.dependsOn jacocoTestReport
 }
 
 // https://github.com/researchgate/gradle-release/issues/158

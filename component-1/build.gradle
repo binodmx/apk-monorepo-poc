@@ -65,6 +65,15 @@ subprojects {
     checkstyle {
         configFile = rootProject.file('checkstyle/checkstyle.xml')
     }
+    
+    jacocoTestReport {
+        reports {
+            xml.enabled true
+            html.enabled false
+        }
+    }
+
+    check.dependsOn jacocoTestReport
 }
 
 // https://github.com/researchgate/gradle-release/issues/158
@@ -80,12 +89,3 @@ task('printName') {
         println "Name: $project.name"
     }
 }
-
-jacocoTestReport {
-    reports {
-        xml.enabled true
-        html.enabled false
-    }
-}
-
-check.dependsOn jacocoTestReport

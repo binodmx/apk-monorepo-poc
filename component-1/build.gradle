@@ -2,6 +2,25 @@ plugins {
     // https://github.com/researchgate/gradle-release#multi-project-builds
     // https://github.com/researchgate/gradle-release/issues/102
     id 'net.researchgate.release' version '3.0.2'
+    id 'jacoco-report-aggregation'
+    id 'base'
+}
+
+dependencies {
+    jacocoAggregation project(':sample-java-project-1')
+    jacocoAggregation project(':sample-java-project-2')
+}
+
+reporting {
+    reports {
+        testCodeCoverageReport(JacocoCoverageReport) { 
+            testType = TestSuiteType.UNIT_TEST
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
 }
 
 subprojects {
@@ -24,6 +43,10 @@ subprojects {
         doLast {
             println "Project Name: $project.name"
         }
+    }
+
+    tasks.named("jacocoTestReport") {
+        enabled = false
     }
 
     jar {

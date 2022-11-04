@@ -1,0 +1,19 @@
+name: Run CodeCov
+
+on:
+  pull_request:
+    types: [opened]
+    paths:
+      - 'component-1/**' 
+
+jobs:
+  build:
+    name: Test Java Components
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: run tests
+        run: cd component-1 && ./gradlew test
+      - name: upload coverage reports to Codecov with GitHub Action
+        uses: codecov/codecov-action@v3

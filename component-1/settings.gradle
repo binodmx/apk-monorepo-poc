@@ -6,7 +6,7 @@ include ':sample-java-project-2'
 dependencyResolutionManagement {
     versionCatalogs {
         libs {
-            from(files("../libs.versions.toml"))
+            from(files("$rootDir/../libs.versions.toml"))
         }
     }
 }

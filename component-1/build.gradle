@@ -80,3 +80,10 @@ task('printName') {
         println "Name: $project.name"
     }
 }
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        html.enabled false
+    }
+}

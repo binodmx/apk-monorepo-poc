@@ -11,10 +11,10 @@ public class MyClass1 {
     }
 
     public String getHello2() {
-        return "Hello";
+        return "Hello2";
     }
 
     public String getHello3() {
-        return "Hello";
+        return "Hello3";
     }
 }

@@ -4,8 +4,6 @@ coverage:
     patch: off
 
 flag_management:
-  default_rules:
-    carryforward: true
   individual_flags:
     - name: codecov-sp
       paths:
@@ -14,6 +12,7 @@ flag_management:
         - type: project
           target: 100%
           threshold: 1%
+      carryforward: true
     - name: codecov-mp
       paths:
         - codecov-mp-test/
@@ -21,3 +20,4 @@ flag_management:
         - type: project
           target: auto
           threshold: 1%
+      carryforward: true

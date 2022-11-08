@@ -30,6 +30,4 @@ public class Calculator {
         RandomDataGenerator randomDataGenerator = new RandomDataGenerator();
         return randomDataGenerator.nextInt(1, 10);
     }
-
-
 }

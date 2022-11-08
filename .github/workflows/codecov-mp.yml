@@ -21,4 +21,5 @@ jobs:
       - name: upload coverage reports to Codecov with GitHub Action
         uses: codecov/codecov-action@v3
         with:
+          flags: codecov-mp
           files: ./codecov-mp-test/build/reports/jacoco/testCodeCoverageReport/testCodeCoverageReport.xml

@@ -20,6 +20,10 @@ public class MyClass {
     }
     
     public String getHello5() {
-        return "Hello4";
+        return "Hello5";
+    }
+    
+    public String getHello6() {
+        return "Hello6";
     }
 }

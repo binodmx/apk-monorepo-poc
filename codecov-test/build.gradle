@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation "org.testng:testng:7.6.1"
+}
+
+test {
+    useTestNG() {
+        useDefaultListeners = true
+        // suites 'src/test/resources/suite.xml'
+    }
+}
+
+ jacocoTestReport {
+     reports {
+         xml.enabled true
+         html.enabled false
+     }
+ }
+
+check.dependsOn jacocoTestReport

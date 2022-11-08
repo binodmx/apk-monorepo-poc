@@ -23,4 +23,16 @@ public class MyClassTest {
         MyClass myClass = new MyClass();
         assertEquals(myClass.getHello3(), "Hello3");
     }
+    
+    @Test
+    public void testGetHello4() {
+        MyClass myClass = new MyClass();
+        assertEquals(myClass.getHello4(), "Hello4");
+    }
+    
+    @Test
+    public void testGetHello5() {
+        MyClass myClass = new MyClass();
+        assertEquals(myClass.getHello5(), "Hello5");
+    }
 }

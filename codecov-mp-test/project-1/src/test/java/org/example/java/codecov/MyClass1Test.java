@@ -11,4 +11,10 @@ public class MyClass1Test {
         MyClass1 myClass1 = new MyClass1();
         assertEquals(myClass1.getHello(), "Hello");
     }
+
+    @Test
+    public void testGetHello2() {
+        MyClass1 myClass1 = new MyClass1();
+        assertEquals(myClass1.getHello2(), "Hello");
+    }
 }

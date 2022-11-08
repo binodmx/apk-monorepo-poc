@@ -18,4 +18,8 @@ public class MyClass {
     public String getHello4() {
         return "Hello4";
     }
+    
+    public String getHello5() {
+        return "Hello4";
+    }
 }

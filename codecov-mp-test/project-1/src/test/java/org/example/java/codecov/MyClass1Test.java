@@ -12,15 +12,15 @@ public class MyClass1Test {
         assertEquals(myClass1.getHello(), "Hello");
     }
 
-//     @Test
-//     public void testGetHello2() {
-//         MyClass1 myClass1 = new MyClass1();
-//         assertEquals(myClass1.getHello2(), "Hello2");
-//     }
+    @Test
+    public void testGetHello2() {
+        MyClass1 myClass1 = new MyClass1();
+        assertEquals(myClass1.getHello2(), "Hello2");
+    }
     
-//     @Test
-//     public void testGetHello3() {
-//         MyClass1 myClass1 = new MyClass1();
-//         assertEquals(myClass1.getHello3(), "Hello3");
-//     }
+    @Test
+    public void testGetHello3() {
+        MyClass1 myClass1 = new MyClass1();
+        assertEquals(myClass1.getHello3(), "Hello3");
+    }
 }

@@ -2,6 +2,6 @@ rootProject.name = 'component-2'
 
 include ':sample-java-project-3'
 
-if (!isRelease) {
+if (!isRelease.toBoolean()) {
     includeBuild '../component-1'
 }
